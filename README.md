@@ -24,43 +24,43 @@ error: command '/usr/bin/clang++' failed with exit code 1
 
 ## Make sure you’re using the right Python version
 
-## Check your architecture:
+### Check your architecture:
 
 python3 -c "import platform; print(platform.machine())"
 
-## arm64 for Apple and x86 for intel machines
+### arm64 for Apple and x86 for intel machines
 
-# Check python version
+#### Check python version
 
 which python3
 python3 --version
 
-# If it shows something under /usr/local/ it’s likely Intel; /opt/homebrew/ usually means ARM.
+#### If it shows something under /usr/local/ it’s likely Intel; /opt/homebrew/ usually means ARM.
 
-# For Apple silicon machines run below commands:
+#### For Apple silicon machines run below commands:
 
 brew install python
 which python3
 
-# Above should show this path: /opt/homebrew/bin/python
+#### Above should show this path: /opt/homebrew/bin/python
 
-# Now update pip setup tool and wheel
+## Now update pip setup tool and wheel
 
 pip3 install --upgrade pip setuptools wheel
 
-# Now install LangChain
+## Now install LangChain
 
 pip3 install -U langchain --only-binary=:all:
 
-# Try below if above fails
+## Try below if above fails
 
 pip3 install -U langchain-core langchain-community
 
-# Also check the proper Xcode is setup
+## Also check the proper Xcode is setup
 
 xcode-select --install
 
-# You can also install the LangChain in the virtual vm
+## You can also install the LangChain in the virtual vm
 
 python3 -m venv langenv
 source langenv/bin/activate
