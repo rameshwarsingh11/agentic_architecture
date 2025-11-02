@@ -22,13 +22,13 @@ error: command '/usr/bin/clang++' failed with exit code 1
 
 # Run below commands:
 
-# Make sure you’re using the right Python version
+## Make sure you’re using the right Python version
 
-# Check your architecture:
+## Check your architecture:
 
 python3 -c "import platform; print(platform.machine())"
 
-# arm64 for Apple and x86 for intel machines
+## arm64 for Apple and x86 for intel machines
 
 # Check python version
 
