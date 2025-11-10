@@ -1,0 +1,15 @@
+# Core LangChain components (0.2.x family)
+langchain==0.2.17
+langchain-community==0.2.17
+langchainhub==0.1.21
+
+# Google Generative AI (Gemini) connector
+langchain-google-genai==1.0.5
+
+# Core dependencies
+requests>=2.32.0
+pydantic>=2.7.4
+PyYAML>=6.0
+SQLAlchemy>=2.0.0
+tenacity>=8.2.0
+aiohttp>=3.8.3
