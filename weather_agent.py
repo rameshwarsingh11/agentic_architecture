@@ -2,6 +2,7 @@
 
 import os
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
+os.environ["LANGCHAIN_API_KEY"] = ""
 
 # If you haven’t exported your Gemini key globally, you can set it here
 # os.environ["GOOGLE_API_KEY"] = "YOUR_GEMINI_API_KEY_HERE"
