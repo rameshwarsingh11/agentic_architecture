@@ -9,7 +9,7 @@ os.environ["LANGCHAIN_TRACING_V2"] = "false"
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_community.tools import Tool
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchainhub import hub
+from langchain import hub
 
 
 # --- Define your custom tool ---
