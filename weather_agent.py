@@ -1,21 +1,24 @@
-# Disable LangChain tracing
+# weather_agent.py
+
 import os
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
 
-# Set your Google API key or pass at run time using this command: export GOOGLE_API_KEY = "YOUR_GEMINI_API_KEY_HERE" 
+# If you haven’t exported your Gemini key globally, you can set it here
 # os.environ["GOOGLE_API_KEY"] = "YOUR_GEMINI_API_KEY_HERE"
 
-from langchain.agents import create_react_agent, AgentExecutor
+from langchain.agents import AgentExecutor, create_react_agent
 from langchain_community.tools import Tool
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain import hub
+from langchainhub import hub
 
-# Define your tool
+
+# --- Define your custom tool ---
 def get_weather(city: str) -> str:
-    """Get weather for a given city."""
+    """Simple mock weather function."""
     return f"It's always sunny in {city}!"
 
-# Wrap the tool
+
+# --- Register the tool ---
 tools = [
     Tool(
         name="get_weather",
@@ -24,18 +27,18 @@ tools = [
     )
 ]
 
-# Load reasoning prompt (from LangChain Hub)
+# --- Load the reasoning prompt from LangChain Hub ---
 prompt = hub.pull("hwchase17/react")
 
-# Initialize the Gemini model
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro")  # You can also use gemini-1.5-flash for cheaper/faster responses
+# --- Initialize the Gemini LLM ---
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
 
-# Create the ReAct agent
+# --- Create the ReAct agent ---
 agent = create_react_agent(llm=llm, tools=tools, prompt=prompt)
 
-# Create executor
+# --- Build an executor to run the agent ---
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
-# Run it
-response = agent_executor.invoke({"input": "what is the weather in SF?"})
+# --- Run a sample query ---
+response = agent_executor.invoke({"input": "what is the weather in San Francisco?"})
 print(response)
