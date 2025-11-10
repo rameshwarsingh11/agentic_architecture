@@ -32,7 +32,8 @@ tools = [
 prompt = hub.pull("hwchase17/react")
 
 # --- Initialize the Gemini LLM ---
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro")
+
 
 # --- Create the ReAct agent ---
 agent = create_react_agent(llm=llm, tools=tools, prompt=prompt)
