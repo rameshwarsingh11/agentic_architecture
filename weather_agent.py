@@ -42,5 +42,5 @@ agent = create_react_agent(llm=llm, tools=tools, prompt=prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
 # --- Run a sample query ---
-response = agent_executor.invoke({"input": "what is the weather in San Francisco?"})
+response = agent_executor.invoke({"input": "what is the weather in Toronto, Canada?"})
 print(response)
